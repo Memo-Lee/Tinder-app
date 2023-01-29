@@ -4,35 +4,48 @@ import './styles.css'
 import { SiTinder } from "react-icons/si";
 import { ImUser } from "react-icons/im";
 import { HiChatBubbleLeftRight } from "react-icons/hi2";
-import { FaTimes, FaStar ,FaHeart} from "react-icons/fa";
+import { FaTimes,FaHeart} from "react-icons/fa";
 
 function Home() {
-  const {users,setUsers} = useState([]);
-  const {loading,setIsLoading} = useState(false);
-  useEffect(()=>{
-    axios("https://jsonplaceholder.typicode.com/users")
-    .then((data) => setUsers(data))
-    .catch((e)=> console.log(e))
-    .finally(()=> setIsLoading(false));
-  },[])
+    const [users,setUsers] = useState([]);
+    const [IsLoading,setIsLoading] = useState(false);
+    
+    useEffect((arr)=>{
+      // .then(console.log())
+      axios("https://randomuser.me/api/?results=1")
+      .then((res)=>setUsers(res.data.results))
+      .catch((e)=> console.log(e))
+      .finally(()=> setIsLoading(false));
+    },[]);
+
     return (
     <div className='tinder'>
-        <header className="App-header">
-            <div><ImUser/></div>
-            <div><SiTinder/></div>
-            <div><HiChatBubbleLeftRight/></div>
-        </header>
-        <div className='App-content'>
-            <div className='content'>
-                <h5>Anna 19</h5>
-                <h6>University of San Francisco</h6>
-                <h6>1 mile away</h6>
-            </div>
-        </div>
-        <footer className='App-footer'>
-            <div><FaTimes/></div>
-            <div><FaHeart/></div>
-        </footer>
+        {IsLoading && <div>Loading...</div>}
+          {users.map((user)=>(
+                    <div key={user.id}>
+                      <header className="App-header">
+                      <div><ImUser/></div>
+                      <div><SiTinder/></div>
+                      <div><HiChatBubbleLeftRight/></div>
+                      </header>
+                      <div style={{
+                        backgroundImage:`url('${user.picture.large}')`,
+                        backgroundRepeat:"no-repeat",
+                        backgroundSize:"cover",
+                        width:400,
+                        height:400,
+                        }} className='App-content'>
+                      <div className='content'>
+                          <h5>{user.name.first} {user.name.last}, {user.dob.age}</h5>
+                          <h6>{user.location.city}/{user.location.country}</h6>
+                      </div>
+                      </div>
+                      <footer className='App-footer'>
+                        <div><FaTimes/></div>
+                        <div><FaHeart/></div>
+                      </footer>
+                    </div>
+          ))}
     </div>
   )
 }

@@ -1,2 +1,6 @@
 # tinder-app
-A dating application that uses React.js and an API to match random users together.
+Random User Generator with API. Designed a Tinder application design with Reactjs.
+<img src=""> <img/>
+
+
+
