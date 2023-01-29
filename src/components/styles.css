@@ -1,0 +1,75 @@
+.tinder{
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+background-color: #F7F7F7;
+height:100%;
+width:100%;
+}
+.App-header{
+display: flex;
+justify-content: space-around;
+align-items: center;
+background-color: #F7F7F7;
+height: 100px;
+}
+.App-header div {
+font-size: 30px;
+}
+.App-header :nth-child(1){
+color: #DDDEE3;
+}
+.App-header :nth-child(2){
+color: rgb(255, 11, 11);
+}
+.App-header :nth-child(3){
+color: #DDDEE3;
+}
+.App-content{
+position: relative;
+background-image: url(https://img.freepik.com/free-photo/beautiful-girl-stands-near-walll-with-leaves_8353-5377.jpg?w=2000);
+background-size:cover;
+width: 50vh;
+height: 65vh;
+background-color: red;
+background-repeat: no-repeat;
+margin: auto;
+border-radius: 10px;
+}
+.content{
+position: absolute;
+background-color: transparent;
+bottom: 0;
+margin: 20px 20px;
+text-align: start;
+}
+.content :first-child{
+margin-bottom: 20px;
+font-size: 30px;
+}
+.content h5,h6{
+margin: 0;
+padding: 0;
+}
+.App-footer{
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+height: 100px;
+background-color: #F7F7F7;
+
+}
+.App-footer div{
+background-color:#FFFFFF;
+padding: 15px 20px;
+border-radius: 100%;
+}
+.App-footer div:nth-child(1){
+color: red;
+}
+.App-footer div:nth-child(2){
+color: rgb(0, 153, 255);
+}
+.App-footer div:nth-child(3){
+color: rgb(0, 255, 38);
+}
